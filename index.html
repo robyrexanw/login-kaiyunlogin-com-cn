@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云简明指南 · 访问与认知</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #1f1f2e;
+            background: #f6f7fc;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b0d17 0%, #1a1d2f 100%);
+            padding: 3rem 1.5rem 4rem;
+            text-align: center;
+            color: #eceef7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #b4975a;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.4rem;
+            color: #f0e9d8;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #b1b8d4;
+            max-width: 600px;
+            margin: 0.5rem auto 1.2rem;
+            font-weight: 380;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border: 1px solid rgba(180, 151, 90, 0.5);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #cfc5a3;
+            background: rgba(180, 151, 90, 0.12);
+            letter-spacing: 0.03em;
+        }
+
+        /* 浅色正文区 + 卡片网格 */
+        .content {
+            max-width: 1120px;
+            margin: -1.2rem auto 2rem;
+            padding: 0 1.5rem 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-card p {
+            font-size: 1.02rem;
+            color: #2d2f3e;
+            margin-bottom: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid #edf0f9;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px -8px rgba(26, 29, 47, 0.12);
+            border-color: #d4d9ef;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 530;
+            color: #15182b;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h3 i {
+            font-size: 1.5rem;
+            color: #b4975a;
+            font-style: normal;
+        }
+
+        .card p {
+            color: #3a3d52;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .audience-tag {
+            background: #f0f2fb;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.85rem;
+            color: #2d2f4a;
+            border: 1px solid #dadff0;
+        }
+
+        /* 自然链接段落区域 */
+        .link-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem;
+            box-shadow: 0 8px 22px -6px rgba(0,0,0,0.06);
+            margin: 2rem 0 1.5rem;
+        }
+
+        .link-section p {
+            font-size: 1rem;
+            color: #2a2c40;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .link-section a {
+            color: #9c7e3f;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1.5px solid #dacba6;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .link-section a:hover {
+            color: #6d572a;
+            border-bottom-color: #b4975a;
+        }
+
+        /* 提示与FAQ摘要 */
+        .notice-faq {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.8rem;
+        }
+
+        .notice-block, .faq-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            flex: 1 1 280px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e9ecf7;
+        }
+
+        .notice-block h4, .faq-block h4 {
+            font-size: 1.1rem;
+            font-weight: 530;
+            color: #14162b;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid #b4975a;
+            padding-left: 0.7rem;
+        }
+
+        .notice-block ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .notice-block li {
+            margin-bottom: 0.5rem;
+            font-size: 0.92rem;
+            color: #373b55;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .notice-block li::before {
+            content: '·';
+            color: #b4975a;
+            font-weight: 600;
+            position: absolute;
+            left: 0;
+        }
+
+        .faq-block .qa-item {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-block .q {
+            font-weight: 500;
+            color: #1f233a;
+            font-size: 0.93rem;
+        }
+
+        .faq-block .a {
+            color: #4d516a;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.96rem;
+            }
+            .intro-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .link-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .notice-faq {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                padding: 4rem 2rem 5rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* 辅助分隔 */
+        .footer-note {
+            text-align: center;
+            color: #7b7e96;
+            font-size: 0.85rem;
+            margin: 1.5rem 0 0.5rem;
+            border-top: 1px solid #dfe3f0;
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>开云 · 简明指南</h1>
+        <p class="sub">从访问到理解，一条清晰的认知路径</p>
+        <span class="tagline">信息卡片式 · 知识型视角</span>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+
+        <!-- 主视觉 / 引言卡片 -->
+        <div class="intro-card">
+            <p>在数字工具与平台日益复杂的今天，了解一个服务的入口与边界，比以往更需要一份理性、清晰的参照。这里不提供夸大的承诺，而是从访问提醒与用途解析的角度，帮助你建立对 <strong>开云</strong> 的务实认知。</p>
+            <p>无论你是初次接触，还是希望系统梳理它的功能与边界，下面三张卡片分别对应了它的主要用途、适合人群以及你应当留意的基本事实。</p>
+        </div>
+
+        <!-- 信息卡片网格：用途、人群、场景 -->
+        <div class="grid-cards">
+
+            <div class="card">
+                <h3><i>📋</i> 用途卡片</h3>
+                <p><strong>开云</strong> 主要面向身份验证与账户关联场景，提供统一的登录与授权中转服务。它不直接托管用户数据，而是作为可信的认证桥梁，帮助用户在不同服务间完成身份核验。</p>
+                <p style="margin-top:0.6rem;">典型用途包括：单点登录、权限委托、会话管理。使用前建议确认当前服务域与回调地址的一致性。</p>
+            </div>
+
+            <div class="card">
+                <h3><i>👥</i> 适合人群</h3>
+                <p>日常需要管理多个平台账号的互联网用户；注重访问链路清晰度的技术用户；以及希望降低重复登录摩擦的团队协作场景。</p>
+                <div class="audience-list">
+                    <span class="audience-tag">多账号用户</span>
+                    <span class="audience-tag">效率导向</span>
+                    <span class="audience-tag">轻量级集成</span>
+                    <span class="audience-tag">技术探索者</span>
+                </div>
+                <p style="margin-top:0.8rem;">如果你习惯在统一入口下管理授权关系，那么它的设计逻辑会贴合你的使用习惯。</p>
+            </div>
+
+            <div class="card">
+                <h3><i>⚡</i> 场景速览</h3>
+                <p>· 从浏览器书签直接转向目标服务，<strong>开云</strong> 作为中间认证层<br>
+                   · 在需要二次确认身份的流程中，承担令牌交换与校验<br>
+                   · 作为开放连接的起始点，便于后续服务跳转</p>
+                <p style="margin-top:0.5rem;">注意：每次使用前，请留意浏览器地址栏的域名是否为预期来源。</p>
+            </div>
+        </div>
+
+        <!-- 自然链接段落：嵌入 a 标签 -->
+        <div class="link-section">
+            <p>如果你希望进一步了解该服务的具体界面与交互逻辑，可以直接前往 <a href="https://login-kaiyunlogin.com.cn">开云</a> 查看其认证页面的结构与提示信息。建议在访问前确保网络环境稳定，并核对浏览器地址栏中的域名拼写。</p>
+            <p>对于管理员或集成方而言，理解重定向参数与回调机制是第一步。而普通用户只需要记住：认证入口的真实性判断，往往始于对链接来源的留意。</p>
+        </div>
+
+        <!-- 提示与 FAQ 摘要 -->
+        <div class="notice-faq">
+            <div class="notice-block">
+                <h4>访问提醒</h4>
+                <ul>
+                    <li>始终通过可信书签或已知地址进入认证页面</li>
+                    <li>登录后如遇异常跳转，请检查页面域名是否匹配</li>
+                    <li>不要向任何非官方渠道透露一次性验证码</li>
+                    <li>定期清理浏览器会话缓存，避免授权残留</li>
+                </ul>
+            </div>
+            <div class="faq-block">
+                <h4>FAQ 摘要</h4>
+                <div class="qa-item">
+                    <span class="q">Q：开云 是否存储我的密码？</span>
+                    <p class="a">A：不存储。它仅转发认证请求，凭据由服务端独立管理。</p>
+                </div>
+                <div class="qa-item">
+                    <span class="q">Q：认证失败后该怎么做？</span>
+                    <p class="a">A：检查网络、清除缓存、确认回调地址未被篡改，然后重试。</p>
+                </div>
+                <div class="qa-item">
+                    <span class="q">Q：支持哪些设备？</span>
+                    <p class="a">A：主流桌面与移动浏览器均可，推荐保持最新版本。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <span>信息卡片式 · 基于公开认知整理 · 不做诱导或夸大描述</span>
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://robyrexanw.github.io/login-kaiyunlogin-com-cn/sitemap.xml
